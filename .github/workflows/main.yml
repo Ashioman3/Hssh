@@ -1,0 +1,19 @@
+name: Continuous Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  # Trigger every 6 hours
+
+jobs:
+  run_rdp:
+    name: Run RDP Tasks
+    runs-on: windows-latest
+    steps:
+      - name: Download and Run Script
+        run: |
+          # Download necessary files
+          Invoke-WebRequest -Uri "https://example.com/your_script.bat" -OutFile "your_script.bat"
+          # Run the script
+          cmd /c your_script.bat
+￼Enter
